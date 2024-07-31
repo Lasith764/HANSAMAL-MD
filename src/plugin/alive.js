@@ -12,7 +12,7 @@ const alive = async (m, Matrix) => {
   const cmd = m.body.startsWith(prefix) ? m.body.slice(prefix.length).toLowerCase() : '';
     if (['alive', 'uptime', 'runtime'].includes(cmd)) {
 
-  const uptimeMessage = `*💖 HANSAMAL-MD Status Overview*
+  const uptimeMessage = `*💖 no name Overview*
 _________________________________________
 
 *📆 ${days} Day*
@@ -20,7 +20,7 @@ _________________________________________
 *⏳ ${minutes} Minute*
 *⏲️ ${seconds} Second*
    
-   *© POWERED BY IMALKA-𝙃𝘼𝙉𝙎𝘼𝙈𝘼𝙇*
+   *©not fo password*
 _________________________________________
 `;
 
@@ -53,7 +53,7 @@ _________________________________________
             text: uptimeMessage
           }),
           footer: proto.Message.InteractiveMessage.Footer.create({
-            text: "© Powered By 𝙃𝘼𝙉𝙎𝘼𝙈𝘼𝙇-𝞛𝘿"
+            text: "© Powered By me"
           }),
           header: proto.Message.InteractiveMessage.Header.create({
             title: "",
@@ -70,7 +70,7 @@ _________________________________________
                   isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                   newsletterJid: '120363249960769123@newsletter',
-                  newsletterName: "𝙃𝘼𝙉𝙎𝘼𝙈𝘼𝙇-𝛭𝐷",
+                  newsletterName: "me",
                   serverMessageId: 143
                 }
               }
