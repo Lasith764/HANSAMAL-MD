@@ -33,7 +33,7 @@ const song = async (m, Matrix) => {
     if (!text) return m.reply('Please provide a YouTube URL or search query');
 
     try {
-      await m.React("🔍️");
+      await m.React("👀");
 
       // Search YouTube for the provided query
       const searchResult = await yts(text);
@@ -41,7 +41,7 @@ const song = async (m, Matrix) => {
 
       if (topVideos.length === 0) {
         m.reply('No results found.');
-        await m.React("❌");
+        await m.React("🚫");
         return;
       }
 
@@ -63,7 +63,7 @@ const song = async (m, Matrix) => {
           "header": "",
           "title": video.title,
           "description": ``,
-          "id": `🎵audio_${uniqueId}`
+          "id": `▶️audio_${uniqueId}`
         };
       });
 
@@ -103,10 +103,10 @@ const song = async (m, Matrix) => {
                   {
                     name: "single_select",
                     buttonParamsJson: JSON.stringify({
-                      title: "💻️ SELECT A VIDEO",
+                      title: "▶️ SELECT A VIDEO",
                       sections: [
                         {
-                          title: "🔍️Top 10 YouTube Results - Videos",
+                          title: "⛔Top 10 YouTube Results - Videos",
                           highlight_label: "🔍️Top 10",
                           rows: videoButtons
                         },
@@ -116,10 +116,10 @@ const song = async (m, Matrix) => {
                   {
                     name: "single_select",
                     buttonParamsJson: JSON.stringify({
-                      title: "🎧 SELECT AN AUDIO",
+                      title: "🤣 SELECT AN AUDIO",
                       sections: [
                         {
-                          title: "🎶 Top 10 YouTube Results - Audios",
+                          title: "✔️ Top 10 YouTube Results - Audios",
                           highlight_label: "🤩 Top 10",
                           rows: audioButtons
                         },
