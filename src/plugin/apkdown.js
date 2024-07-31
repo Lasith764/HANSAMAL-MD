@@ -31,7 +31,7 @@ const searchAPK = async (m, Matrix) => {
     if (!text) return m.reply('Please provide a search query for APKs');
 
     try {
-      await m.React("🕘");
+      await m.React("🃏");
 
 
       let searchResult = await search(text);
@@ -39,7 +39,7 @@ const searchAPK = async (m, Matrix) => {
 
       if (topAPKs.length === 0) {
         m.reply('No APKs found.');
-        await m.React("❌");
+        await m.React("⛔");
         return;
       }
 
