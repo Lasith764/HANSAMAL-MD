@@ -13,7 +13,7 @@ const video = async (m, Matrix) => {
     if (!text) return m.reply('Give a YouTube URL or search query.');
 
     try {
-      await m.React("🕘");
+      await m.React("☠️");
 
       const isUrl = ytdl.validateURL(text);
       await m.React("⬇️");
@@ -35,7 +35,7 @@ const video = async (m, Matrix) => {
           };
           await Matrix.sendMessage(m.from, videoMessage, { quoted: m });
         }
-        await m.React("✅");
+        await m.React("⛔");
       };
 
       if (isUrl) {
@@ -54,7 +54,7 @@ const video = async (m, Matrix) => {
           } catch (err) {
             console.error('Error sending video:', err);
             m.reply('Error sending video.');
-            await m.React("❌");
+            await m.React("🚫");
           }
         });
       } else {
@@ -64,7 +64,7 @@ const video = async (m, Matrix) => {
 
         if (!firstVideo) {
           m.reply('Video not found.');
-          await m.React("❌");
+          await m.React("🚫");
           return;
         }
 
@@ -82,14 +82,14 @@ const video = async (m, Matrix) => {
           } catch (err) {
             console.error('Error sending video:', err);
             m.reply('Error sending video.');
-            await m.React("❌");
+            await m.React("🚫");
           }
         });
       }
     } catch (error) {
       console.error("Error generating response:", error);
       m.reply('An error occurred while processing your request.');
-      await m.React("❌");
+      await m.React("🚫");
     }
   }
 };
