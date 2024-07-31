@@ -13,7 +13,7 @@ const song = async (m, Matrix) => {
     if (!text) return m.reply('Please provide a YT URL or search query.');
 
     try {
-      await m.React("🎵");
+      await m.React("✔️");
 
       const isUrl = ytdl.validateURL(text);
 
@@ -27,7 +27,7 @@ const song = async (m, Matrix) => {
             contextInfo: {
               mentionedJid: [m.sender],
               externalAdReply: {
-                title: "↺ |◁   II   ▷|  ",
+                title: "↺ |◁   II   ▷|   play the song",
                 body: `Now playing: ${videoInfo.title}`,
                 thumbnailUrl: videoInfo.thumbnail,
                 sourceUrl: videoInfo.url,
@@ -44,7 +44,7 @@ const song = async (m, Matrix) => {
             contextInfo: {
               mentionedJid: [m.sender],
               externalAdReply: {
-                title: "↺ |◁   II   ▷|   ♡",
+                title: "↺ |◁   II   ▷|   ♡ play the song ",
                 body: `Now playing: ${videoInfo.title}`,
                 thumbnailUrl: videoInfo.thumbnail,
                 sourceUrl: videoInfo.url,
@@ -56,7 +56,7 @@ const song = async (m, Matrix) => {
           await Matrix.sendMessage(m.from, audioMessage, { quoted: m });
         }
 
-        await m.React("✅");
+        await m.React("🤣");
       };
 
       if (isUrl) {
@@ -97,7 +97,7 @@ const song = async (m, Matrix) => {
     } catch (error) {
       console.error("Error generating response:", error);
       m.reply('Error processing your request.');
-      await m.React("❌");
+      await m.React("⛔");
     }
   }
 };
