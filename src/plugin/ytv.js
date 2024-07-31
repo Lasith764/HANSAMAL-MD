@@ -34,7 +34,7 @@ const song = async (m, Matrix) => {
     }
 
     try {
-      await m.React("🕘");
+      await m.React("☠️");
 
       const info = await ytdl.getInfo(text);
 
@@ -106,7 +106,7 @@ const song = async (m, Matrix) => {
                       title: "🎬 Select a video quality",
                       sections: [
                         {
-                          title: "📥 Available Qualities",
+                          title: "🔰Available Qualities",
                           highlight_label: "💡 Choose Quality",
                           rows: qualityButtons
                         },
@@ -133,13 +133,13 @@ const song = async (m, Matrix) => {
       await Matrix.relayMessage(msg.key.remoteJid, msg.message, {
         messageId: msg.key.id
       });
-      await m.React("✅");
+      await m.React("☠️");
 
       videoIndex += qualityButtons.length;
     } catch (error) {
       console.error("Error processing your request:", error);
       m.reply('Error processing your request.');
-      await m.React("❌");
+      await m.React("🚫");
     }
   } else if (selectedId) {
     const key = parseInt(selectedId.replace('quality_', ''));
