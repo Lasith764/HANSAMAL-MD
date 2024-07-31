@@ -34,14 +34,14 @@ const playcommand = async (m, Matrix) => {
     }
 
     try {
-      await m.React("🕘");
+      await m.React("▶️");
 
       const searchResults = await ytSearch(text);
       const videos = searchResults.videos.slice(0, 5);
 
       if (videos.length === 0) {
         m.reply('No results found.');
-        await m.React("❌");
+        await m.React("☠️");
         return;
       }
 
@@ -55,35 +55,35 @@ const playcommand = async (m, Matrix) => {
         {
           "name": "quick_reply",
           "buttonParamsJson": JSON.stringify({
-            display_text: "🎧 AUDIO",
+            display_text: "👁️ AUDIO",
             id: `media_audio_${searchIndex}`
           })
         },
         {
           "name": "quick_reply",
           "buttonParamsJson": JSON.stringify({
-            display_text: "🎥 VIDEO",
+            display_text: "▶️ VIDEO",
             id: `media_video_${searchIndex}`
           })
         },
         {
           "name": "quick_reply",
           "buttonParamsJson": JSON.stringify({
-            display_text: "🎵 AUDIO DOCUMENT",
+            display_text: "✔️AUDIO DOCUMENT",
             id: `media_audiodoc_${searchIndex}`
           })
         },
         {
           "name": "quick_reply",
           "buttonParamsJson": JSON.stringify({
-            display_text: "🎦 VIDEO DOCUMENT",
+            display_text: "🔰 VIDEO DOCUMENT",
             id: `media_videodoc_${searchIndex}`
           })
         },
         {
           "name": "quick_reply",
           "buttonParamsJson": JSON.stringify({
-            display_text: "⏩ NEXT",
+            display_text: "▶️NEXT",
             id: `next_${searchIndex + 1}`
           })
         }
@@ -129,13 +129,13 @@ const playcommand = async (m, Matrix) => {
       await Matrix.relayMessage(msg.key.remoteJid, msg.message, {
         messageId: msg.key.id
       });
-      await m.React("✅");
+      await m.React("✔️");
 
       searchIndex += 1;
     } catch (error) {
       console.error("Error processing your request:", error);
       m.reply('Error processing your request.');
-      await m.React("❌");
+      await m.React("😅");
     }
   } else if (selectedId) {
     if (selectedId.startsWith('next_')) {
@@ -149,14 +149,14 @@ const playcommand = async (m, Matrix) => {
         {
           "name": "quick_reply",
           "buttonParamsJson": JSON.stringify({
-            display_text: "🎧 AUDIO",
+            display_text: "✔️ AUDIO",
             id: `media_audio_${nextIndex}`
           })
         },
         {
           "name": "quick_reply",
           "buttonParamsJson": JSON.stringify({
-            display_text: "🎥 VIDEO",
+            display_text: "🎊️ VIDEO",
             id: `media_video_${nextIndex}`
           })
         },
@@ -198,7 +198,7 @@ const playcommand = async (m, Matrix) => {
                 text: `*HANSAMAL-MD YOUTUBE SEARCH*\n\n> *🔍TITLE:* ${currentResult.title}\n> *AUTHOR:* ${currentResult.author.name}\n> *VIEWS:* ${currentResult.views}\n> *DURATION:* ${currentResult.timestamp}\n> *YTLINK:* ${url}`
               }),
               footer: proto.Message.InteractiveMessage.Footer.create({
-                text: "© Powered By 𝙃𝘼𝙉𝙎𝘼𝙈𝘼𝙇-𝞛𝘿"
+                text: "© Powered By 𝙃𝘼𝙉"
               }),
               header: proto.Message.InteractiveMessage.Header.create({
                 ...(await prepareWAMessageMedia({ image: { url: thumbnailUrl } }, { upload: Matrix.waUploadToServer })),
@@ -249,7 +249,7 @@ const playcommand = async (m, Matrix) => {
               contextInfo: {
                 mentionedJid: [m.sender],
                 externalAdReply: {
-                  title: "↺ |◁   II   ▷|  HANSA",
+                  title: "↺ |◁   II   ▷|  😅😅",
                   body: `Now playing: ${selectedMedia.title}`,
                   thumbnailUrl: selectedMedia.thumbnail,
                   sourceUrl: videoUrl,
@@ -263,7 +263,7 @@ const playcommand = async (m, Matrix) => {
             content = {
               video: finalMediaBuffer,
               mimetype: mimeType,
-              caption: `> TITLE: ${selectedMedia.title}\n\n*Downloaded by 𝙃𝘼𝙉𝙎𝘼𝙈𝘼𝙇-𝞛𝘿*`
+              caption: `> TITLE: ${selectedMedia.title}\n\n*Downloaded by පල පල*`
             };
             await Matrix.sendMessage(m.from, content, { quoted: m });
           } else if (type === 'audiodoc' || type === 'videodoc') {
@@ -289,7 +289,7 @@ const playcommand = async (m, Matrix) => {
         } catch (error) {
           console.error("Error processing your request:", error);
           m.reply('Error processing your request.');
-          await m.React("❌");
+          await m.React("🚫");
         }
       }
     }
