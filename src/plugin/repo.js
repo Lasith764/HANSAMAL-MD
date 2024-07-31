@@ -3,20 +3,20 @@ const { generateWAMessageFromContent, proto } = pkg;
 import axios from 'axios'; // Import axios for HTTP requests
 
 const handleRepoCommand = async (m, Matrix) => {
-  const repoUrl = 'https://api.github.com/repos/cobrs11/HANSAMAL-MD';
+  const repoUrl = 'https://api.github.com/repos/lasith767/nonem-md';
   try {
     const response = await axios.get(repoUrl);
     const repoData = response.data;
 
     const { full_name, name, forks_count, stargazers_count, created_at, updated_at, owner } = repoData;
 
-    const messageText = `📊 Repository Information:
+    const messageText = `🤣 Repository Information:
     \n🔸 *Name:* ${name}
     \n⭐ *Stars:* ${stargazers_count}
     \n🍴 *Forks:* ${forks_count}
     \n📅 *Created At:* ${new Date(created_at).toLocaleDateString()}
     \n🛠️ *Last Updated:* ${new Date(updated_at).toLocaleDateString()}
-    \n👤 *Owner:* ${owner.login}`;
+    \n💗💗💗 *Owner:* ${owner.login}`;
 
     const repoMessage = generateWAMessageFromContent(m.from, {
       viewOnceMessage: {
@@ -30,7 +30,7 @@ const handleRepoCommand = async (m, Matrix) => {
               text: messageText
             }),
             footer: proto.Message.InteractiveMessage.Footer.create({
-              text: "© Powered By 𝙄𝙈𝘼𝙇𝙆𝘼-𝙃𝘼𝙉𝙎𝘼𝙈𝘼𝙇"
+              text: "© Powered By fuck"
             }),
             header: proto.Message.InteractiveMessage.Header.create({
              ...(await prepareWAMessageMedia({ image: { url: `https://telegra.ph/file/005ceb36ec2a141f6c891.jpg` } }, { upload: Matrix.waUploadToServer })),
@@ -77,12 +77,12 @@ const handleRepoCommand = async (m, Matrix) => {
     await Matrix.relayMessage(repoMessage.key.remoteJid, repoMessage.message, {
       messageId: repoMessage.key.id
     });
-    await m.React("✅");
+    await m.React("🤣");
 
   } catch (error) {
     console.error("Error processing your request:", error);
     m.reply('Error processing your request.');
-    await m.React("❌");
+    await m.React("👽");
   }
 };
 
